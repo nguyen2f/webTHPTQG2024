@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu điểm thi</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'diemthi/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Tra Cứu Điểm Thi</h1>
+        <form method="GET" class="mt-4">
+            <div class="mb-3">
+                <input type="text" name="sbd" id="sbd" class="form-control" placeholder="Nhập số báo danh" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Tra Cứu</button>
+        </form>
+
+        {% if student %}
+            <table class="table table-bordered mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Môn</th>
+                        <th scope="col">Điểm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Toán</td>
+                        <td>{{ student.toan }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ngữ Văn</td>
+                        <td>{{ student.ngu_van }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ngoại Ngữ</td>
+                        <td>{{ student.ngoai_ngu }}</td>
+                    </tr>
+                    <tr>
+                        <td>Vật Lý</td>
+                        <td>{{ student.vat_li }}</td>
+                    </tr>
+                    <tr>
+                        <td>Hóa Học</td>
+                        <td>{{ student.hoa_hoc }}</td>
+                    </tr>
+                    <tr>
+                        <td>Sinh Học</td>
+                        <td>{{ student.sinh_hoc }}</td>
+                    </tr>
+                    <tr>
+                        <td>Lịch Sử</td>
+                        <td>{{ student.lich_su }}</td>
+                    </tr>
+                    <tr>
+                        <td>Địa Lý</td>
+                        <td>{{ student.dia_li }}</td>
+                    </tr>
+                    <tr>
+                        <td>Giáo Dục Công Dân</td>
+                        <td>{{ student.gdcd }}</td>
+                    </tr>
+                    <tr>
+                        <td>Mã Ngoại Ngữ</td>
+                        <td>{{ student.ma_ngoai_ngu }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% elif student is not None %}
+            <div class="alert alert-danger mt-3">Không tìm thấy thí sinh với SBD: {{ request.GET.sbd }}</div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
