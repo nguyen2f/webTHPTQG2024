@@ -21,5 +21,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('diemthi.urls')),  # Bao gồm các URL của ứng dụng diemthi
+    path('', include('diemthi.urls')),# Bao gồm các URL của ứng dụng diemthi
 ]
