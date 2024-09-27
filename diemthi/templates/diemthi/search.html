@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tra cứu điểm thi</title>
     {% load static %}
+    <link type="image/png" sizes="16x16" rel="icon" href=".../icons8-study-office40-16.png">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <!-- Thêm Bootstrap để giúp căn chỉnh dễ dàng -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Tra cứu điểm thi THPTQG2024</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">dấ</span>
+        </button>
+      </div>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-center">Tra Cứu Điểm Thi</h1>
+        <h1 class="text-center"><i class="fas fa-search"></i> Tra Cứu Điểm Thi</h1>
 
         <!-- Form nhập số báo danh -->
         <form method="GET" id="searchForm" class="text-center">
             <div class="form-group">
                 <input type="text" name="sbd" id="sbd" class="form-control" placeholder="Nhập số báo danh" required>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Tra Cứu</button>
+            <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-paper-plane"></i> Tra Cứu</button>
         </form>
 
         <!-- Thông báo lỗi -->
@@ -43,7 +54,7 @@
                     <tr><td>Lịch Sử</td><td>{{ student.lich_su|default_if_none:"" }}</td></tr>
                     <tr><td>Địa Lý</td><td>{{ student.dia_li|default_if_none:"" }}</td></tr>
                     <tr><td>GDCD</td><td>{{ student.gdcd|default_if_none:"" }}</td></tr>
-                    <tr><td>Mã Ngoại Ngữ </td><td>{{ student.ma_ngoai_ngu|default_if_none:"" }}</td></tr>
+                    <tr><td>Mã Ngoại Ngữ</td><td>{{ student.ma_ngoai_ngu|default_if_none:"" }}</td></tr>
                 </tbody>
             </table>
         {% elif student is not None %}
@@ -59,7 +70,7 @@
             const sbd = document.getElementById('sbd').value;
             const errorMessage = document.getElementById('error-message');
 
-            if (!sbd || isNaN(sbd) || sbd.length < 5) {
+            if (!sbd || isNaN(sbd) || sbd.length != 8) {
                 errorMessage.textContent = "Số báo danh không hợp lệ. Vui lòng nhập lại!";
                 errorMessage.style.display = 'block';
                 return;
@@ -70,13 +81,13 @@
             }
         });
     </script>
-</body>
 
-<footer class="text-center mt-5">
-    <p>2024 - Bản quyền thuộc về <a href="https://www.facebook.com/nguyen2.f.2907"> Nguyễn Phúc Nguyên </a></p>
-    <p>
-        <a href="https://www.facebook.com/nguyen2.f.2907" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-        <a href="https://github.com/nguyen2f" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-    </p>
-</footer>
+    <footer class="text-center mt-5">
+        <p>2024 - Bản quyền thuộc về <a href="https://www.facebook.com/nguyen2.f.2907">Nguyễn Phúc Nguyên</a></p>
+        <p>
+            <a href="https://www.facebook.com/nguyen2.f.2907" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://github.com/nguyen2f" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+        </p>
+    </footer>
+</body>
 </html>
