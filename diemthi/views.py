@@ -20,4 +20,4 @@ def search_student(request):
         return render(request, 'diemthi/search.html', {'student': student})
     except Student.DoesNotExist:
         # If the student does not exist, return the same page with an error message
-        return render(request, 'diemthi/search.html', {'error_message': f"Số báo danh {sbd} không tồn tại."})
+        return render(request, 'diemthi/search.html', {'error_message': "Số báo danh không hợp lệ. Vui lòng nhập lại!"})

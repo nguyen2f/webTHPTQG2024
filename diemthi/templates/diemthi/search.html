@@ -33,7 +33,9 @@
         </form>
 
         <!-- Thông báo lỗi -->
-        <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
+        <div id="error-message" class="alert alert-danger" style="display: {% if error_message %}block{% else %}none{% endif %};">
+        {{ error_message }}
+        </div>
 
         <!-- Hiển thị kết quả -->
         {% if student %}
